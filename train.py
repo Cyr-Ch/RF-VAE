@@ -1,8 +1,7 @@
-import matplotlib.pyplot as plt
 import numpy as np
 import torch
 import torch.nn as nn
-from utils import plot_density
+from utils import density
 
 
 def train(model, dataset, batch_size=150, max_epochs=1000, frequency=200):
@@ -27,6 +26,6 @@ def train(model, dataset, batch_size=150, max_epochs=1000, frequency=200):
 
         if epoch % frequency == 0:
             print(f"Epoch {epoch} -> loss: {total_loss.item():.2f}")
-            plot_density(model, train_loader)
+            density(model, train_loader)
 
     return model, losses
